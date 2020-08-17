@@ -163,7 +163,6 @@ const SplitButton = ({ itemRef, item, uid }) => {
       <button
         aria-controls={uid}
         aria-expanded={isExpanded}
-        aria-label={i18n._(item.title)}
         sx={{
           ...styles.resetButton,
           bottom: 0,
