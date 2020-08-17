@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-
 import ChevronSvg from "./chevron-svg"
 import indention from "../../utils/sidebar/indention"
 import ItemLink from "./item-link"
@@ -164,9 +163,7 @@ const SplitButton = ({ itemRef, item, uid }) => {
       <button
         aria-controls={uid}
         aria-expanded={isExpanded}
-        aria-label={
-          isExpanded ? `${item.title} collapse` : `${item.title} expand`
-        }
+        aria-label={i18n._(item.title)}
         sx={{
           ...styles.resetButton,
           bottom: 0,
