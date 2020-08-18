@@ -83,18 +83,31 @@ describe(`sidebar`, () => {
       const { queryByText } = renderSidebar(`/characters/jay-gatsby/`)
       expect(queryByText(`Jay Gatsby`)).toBeInTheDocument()
     })
+
+    it(`opens sections with active items when the pathname is missing a trailing slash`, () => {
+      const { queryByText } = renderSidebar(`/characters/jay-gatsby`)
+      expect(queryByText(`Jay Gatsby`)).toBeInTheDocument()
+    })
   })
 
   describe(`toggle section`, () => {
     it(`opens the section if it is not open`, () => {
       const { queryByText, getByLabelText } = renderSidebar(`/plot-summary/`)
+<<<<<<< HEAD
       fireEvent.click(getByLabelText(`Motifs`))
+=======
+      fireEvent.click(getByLabelText(`Motifs toggle`))
+>>>>>>> b86d3ffefa003ee6d0095283c92d4581167e0770
       expect(queryByText(`The Green Light`)).toBeInTheDocument()
     })
 
     it(`closes the section if it is already opened`, () => {
       const { queryByText, getByLabelText } = renderSidebar(`/motifs/`)
+<<<<<<< HEAD
       fireEvent.click(getByLabelText(`Motifs`))
+=======
+      fireEvent.click(getByLabelText(`Motifs toggle`))
+>>>>>>> b86d3ffefa003ee6d0095283c92d4581167e0770
       expect(queryByText(`The Green Light`)).not.toBeInTheDocument()
     })
   })
@@ -124,6 +137,11 @@ describe(`sidebar`, () => {
   describe(`scroll into view`, () => {
     it(`scrolls the sidebar into view on load`, () => {
       renderSidebar(`/characters/jay-gatsby/`)
+      expect(scrollIntoViewMock).toHaveBeenCalled()
+    })
+
+    it(`scrolls the sidebar into view on load when the pathname is missing a trailing slash`, () => {
+      renderSidebar(`/characters/jay-gatsby`)
       expect(scrollIntoViewMock).toHaveBeenCalled()
     })
 
